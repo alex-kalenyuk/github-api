@@ -68,6 +68,7 @@ doctrine:
 #    spool:     { type: memory }
 
 fos_rest:
+    param_fetcher_listener: true
     routing_loader:
         default_format: json
 
