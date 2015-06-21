@@ -8,8 +8,10 @@ class ReposController extends FOSRestController
 {
     public function getReposAction()
     {
-        $data = [];
-        $view = $this->view($data, 200);
+        $view = $this->view(
+            $this->get('github_service')->getRepos(),
+            200
+        );
 
         return $this->handleView($view);
     }

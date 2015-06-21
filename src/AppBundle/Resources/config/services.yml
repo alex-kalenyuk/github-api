@@ -1,2 +1,4 @@
 services:
-  #
+    github_service:
+      class: AppBundle\Services\GithubService
+      arguments: [@guzzle.client]
