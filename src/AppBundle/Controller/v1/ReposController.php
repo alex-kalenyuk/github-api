@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\v1;
 
 use FOS\RestBundle\Controller\FOSRestController;
 

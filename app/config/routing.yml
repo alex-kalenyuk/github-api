@@ -2,6 +2,7 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
-repos:
+repos_v1:
     type:     rest
-    resource: AppBundle\Controller\ReposController
+    prefix:   /v1
+    resource: AppBundle\Controller\v1\ReposController
