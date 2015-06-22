@@ -5,9 +5,7 @@ namespace AppBundle\Controller\v1;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Request\ParamFetcher;
 use FOS\RestBundle\Controller\Annotations\QueryParam;
-use FOS\RestBundle\Request\ParamFetcherInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class ReposController extends FOSRestController
 {
@@ -27,7 +25,7 @@ class ReposController extends FOSRestController
         );
 
         return $this->handleView(
-            $this->view($repos, 200)
+            $this->view($repos, Response::HTTP_OK)
         );
     }
 }

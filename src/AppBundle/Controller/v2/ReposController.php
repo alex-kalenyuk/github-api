@@ -6,10 +6,6 @@ use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Request\ParamFetcher;
 use FOS\RestBundle\Controller\Annotations\QueryParam;
 use FOS\RestBundle\Controller\Annotations\RequestParam;
-use FOS\RestBundle\Request\ParamFetcherInterface;
-use FOS\RestBundle\View\RouteRedirectView;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\CommentType;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -97,7 +93,6 @@ class ReposController extends FOSRestController
                 ->createComment($form->getData());
             $view = $this->view(['comment' => $comment], Response::HTTP_CREATED);
         } else {
-            $errors = $form->getErrors(true);
             $view = $this->view(['errors' =>$form->getErrors()], Response::HTTP_BAD_REQUEST);
         }
 
