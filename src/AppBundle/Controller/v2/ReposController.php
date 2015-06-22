@@ -32,4 +32,26 @@ class ReposController extends FOSRestController
             $this->view($repos, 200)
         );
     }
+
+//    /**
+//     * Get comments of repository
+//     * @param string $repoName
+//     * @param ParamFetcher $paramFetcher
+//     * @return array data
+//     *
+//     * @QueryParam(name="page", requirements="\d+", default="1", description="Page of the list.")
+//     * @QueryParam(name="per_page", requirements="\d+", default="10")
+//     */
+    public function getRepoCommentsAction($slug)
+    {
+//        $repos = $this->get('github_service')->getRepos(
+//            $paramFetcher->get('page'),
+//            $paramFetcher->get('per_page'),
+//            $paramFetcher->get('type')
+//        );
+
+        return $this->handleView(
+            $this->view([], 200)
+        );
+    }
 }
