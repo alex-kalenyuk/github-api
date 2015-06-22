@@ -2,3 +2,10 @@ services:
     github_service:
       class: AppBundle\Services\GithubService
       arguments: [@guzzle.client]
+    comments_service:
+      class: AppBundle\Services\CommentsService
+      arguments: [@doctrine.orm.entity_manager]
+    comment_form:
+        class: AppBundle\Form\CommentType
+        tags:
+            - { name: form.type, alias: comment }

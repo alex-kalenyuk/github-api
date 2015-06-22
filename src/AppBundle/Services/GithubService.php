@@ -40,22 +40,4 @@ class GithubService
 
         return json_decode($response, true);
     }
-
-    /**
-     * Get repo comments
-     *
-     * @param string $repoName
-     * @param int $page
-     * @param int $perPage
-     * @return mixed
-     */
-    public function getCommentsByRepo($repoName, $page = 1, $perPage = 10)
-    {
-        $response = $this->client
-            ->get("repos/alex-kalenyuk/" . $repoName . "/comments?&page=" . $page . "&per_page=" . $perPage)
-            ->getBody()
-            ->getContents();
-
-        return json_decode($response, true);
-    }
 }
