@@ -29,12 +29,30 @@ class GithubService
      */
     public function getRepos($page = 1, $perPage = 10, $type = self::REPO_TYPE_ALL)
     {
-        $repyType = in_array($type, ['all', 'owner', 'public', 'private', 'member'])
+        $repoType = in_array($type, ['all', 'owner', 'public', 'private', 'member'])
             ? $type
             : self::REPO_TYPE_ALL;
 
         $response = $this->client
-            ->get("users/alex-kalenyuk/repos?type=" . $repyType . "&page=" . $page . "&per_page=" . $perPage)
+            ->get("users/alex-kalenyuk/repos?type=" . $repoType . "&page=" . $page . "&per_page=" . $perPage)
+            ->getBody()
+            ->getContents();
+
+        return json_decode($response, true);
+    }
+
+    /**
+     * Get repo comments
+     *
+     * @param string $repoName
+     * @param int $page
+     * @param int $perPage
+     * @return mixed
+     */
+    public function getCommentsByRepo($repoName, $page = 1, $perPage = 10)
+    {
+        $response = $this->client
+            ->get("repos/alex-kalenyuk/" . $repoName . "/comments?&page=" . $page . "&per_page=" . $perPage)
             ->getBody()
             ->getContents();
 
