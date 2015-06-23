@@ -7,6 +7,9 @@ use Doctrine\ORM\EntityManager;
 
 class CommentsService
 {
+    /**
+     * @var EntityManager
+     */
     private $entityManager;
 
 
@@ -15,6 +18,12 @@ class CommentsService
         $this->entityManager = $entityManager;
     }
 
+    /**
+     * Create record
+     *
+     * @param Comment $comment
+     * @return Comment
+     */
     public function createComment(Comment $comment)
     {
         $this->entityManager->persist($comment);
@@ -23,6 +32,13 @@ class CommentsService
         return $comment;
     }
 
+    /**
+     * Update record
+     *
+     * @param int $id
+     * @param string $commentBody
+     * @return Comment|bool
+     */
     public function updateComment($id, $commentBody)
     {
         $entity = $this->entityManager

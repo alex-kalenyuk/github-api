@@ -81,7 +81,7 @@ class ReposController extends FOSRestController
      * @param ParamFetcher $paramFetcher
      * @return array data
      *
-     * @RequestParam(name="comment", requirements="\w{2,}")
+     * @RequestParam(name="comment", requirements="[\w]{2,}.*")
      */
     public function postRepoCommentsAction($repoName, ParamFetcher $paramFetcher)
     {
@@ -107,7 +107,7 @@ class ReposController extends FOSRestController
      * @param ParamFetcher $paramFetcher
      * @return array data
      *
-     * @RequestParam(name="comment", requirements="\w{2,}")
+     * @RequestParam(name="comment", requirements="\w{2,}.*")
      */
     public function putRepoCommentsAction($repoName, $id, ParamFetcher $paramFetcher)
     {
